@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IPL Teams & Match Records</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://documents.iplt20.com/bcci/articles/1741097713_IPL_Website.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.8);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 10px;
+            color: #FFD700;
+        }
+
+        .team-list {
+            margin: 20px 0;
+        }
+
+        .team-btn {
+            padding: 10px 15px;
+            margin: 6px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff6600;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .team-btn:hover {
+            background-color: #cc5200;
+        }
+
+        .team-details {
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            width: 80%;
+            border-radius: 10px;
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 15px;
+            border-collapse: collapse;
+            background: white;
+            color: black;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #ff6600;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="overlay">
+
+<h1>IPL Teams & Match History</h1>
+
+<div class="team-list">
+    <button class="team-btn" onclick="showTeam('MI')">Mumbai Indians</button>
+    <button class="team-btn" onclick="showTeam('CSK')">Chennai Super Kings</button>
+    <button class="team-btn" onclick="showTeam('RCB')">Royal Challengers Bengaluru</button>
+    <button class="team-btn" onclick="showTeam('KKR')">Kolkata Knight Riders</button>
+    <button class="team-btn" onclick="showTeam('SRH')">Sunrisers Hyderabad</button>
+    <button class="team-btn" onclick="showTeam('DC')">Delhi Capitals</button>
+    <button class="team-btn" onclick="showTeam('RR')">Rajasthan Royals</button>
+    <button class="team-btn" onclick="showTeam('PBKS')">Punjab Kings</button>
+    <button class="team-btn" onclick="showTeam('GT')">Gujarat Titans</button>
+    <button class="team-btn" onclick="showTeam('LSG')">Lucknow Super Giants</button>
+</div>
+
+<div id="teamDetails" class="team-details">
+    <h2 id="teamName"></h2>
+    <p><strong>Total Matches:</strong> <span id="totalMatches"></span></p>
+    <p><strong>Total Wins:</strong> <span id="totalWins"></span></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Season</th>
+                <th>Opponent</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody id="matchHistory"></tbody>
+    </table>
+</div>
+
+</div>
+
+<script>
+const teams = {
+    MI: { name: "Mumbai Indians", totalMatches: 250, totalWins: 140,
+        matches: [
+            { season: "2013", opponent: "CSK", result: "Won Final" },
+            { season: "2015", opponent: "CSK", result: "Won Final" },
+            { season: "2019", opponent: "CSK", result: "Won Final" }
+        ]},
+    CSK: { name: "Chennai Super Kings", totalMatches: 230, totalWins: 130,
+        matches: [
+            { season: "2010", opponent: "MI", result: "Won Final" },
+            { season: "2018", opponent: "SRH", result: "Won Final" },
+            { season: "2023", opponent: "GT", result: "Won Final" }
+        ]},
+    RCB: { name: "Royal Challengers Bengaluru", totalMatches: 240, totalWins: 110,
+        matches: [
+            { season: "2009", opponent: "DC", result: "Runner-up" },
+            { season: "2016", opponent: "SRH", result: "Runner-up" }
+        ]},
+    KKR: { name: "Kolkata Knight Riders", totalMatches: 230, totalWins: 120,
+        matches: [
+            { season: "2012", opponent: "CSK", result: "Won Final" },
+            { season: "2014", opponent: "PBKS", result: "Won Final" }
+        ]},
+    SRH: { name: "Sunrisers Hyderabad", totalMatches: 180, totalWins: 90,
+        matches: [
+            { season: "2016", opponent: "RCB", result: "Won Final" }
+        ]},
+    DC: { name: "Delhi Capitals", totalMatches: 220, totalWins: 100,
+        matches: [
+            { season: "2020", opponent: "MI", result: "Runner-up" }
+        ]},
+    RR: { name: "Rajasthan Royals", totalMatches: 200, totalWins: 95,
+        matches: [
+            { season: "2008", opponent: "CSK", result: "Won Final" }
+        ]},
+    PBKS: { name: "Punjab Kings", totalMatches: 210, totalWins: 95,
+        matches: [
+            { season: "2014", opponent: "KKR", result: "Runner-up" }
+        ]},
+    GT: { name: "Gujarat Titans", totalMatches: 50, totalWins: 30,
+        matches: [
+            { season: "2022", opponent: "RR", result: "Won Final" }
+        ]},
+    LSG: { name: "Lucknow Super Giants", totalMatches: 45, totalWins: 22,
+        matches: [
+            { season: "2022", opponent: "RCB", result: "Eliminator" }
+        ]}
+};
+
+function showTeam(teamCode) {
+    const team = teams[teamCode];
+
+    document.getElementById("teamName").innerText = team.name;
+    document.getElementById("totalMatches").innerText = team.totalMatches;
+    document.getElementById("totalWins").innerText = team.totalWins;
+
+    const historyTable = document.getElementById("matchHistory");
+    historyTable.innerHTML = "";
+
+    team.matches.forEach(match => {
+        historyTable.innerHTML += `
+            <tr>
+                <td>${match.season}</td>
+                <td>${match.opponent}</td>
+                <td>${match.result}</td>
+            </tr>
+        `;
+    });
+
+    document.getElementById("teamDetails").style.display = "block";
+}
+</script>
+
+</body>
+</html>
