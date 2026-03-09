@@ -1,10 +1,42 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+function calculateResult(){
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+  let n = document.getElementById("subjects").value;
+
+  let total = 0;
+
+  for(let i = 1; i <= n; i++){
+
+  let marks = parseFloat(prompt("Enter marks for Subject " + i));
+
+   total = total + marks;
+    }
+
+  let average = total / n;
+
+let grade;
+  let result;
+
+  if(average >= 90){
+        grade = "A+";
+  }
+   else if(average >= 75){
+       grade = "A";
+    }
+  else if(average >= 60){
+        grade = "B";
+  }
+    else if(average >= 50){
+        grade = "C";
+    }
+    else{
+        grade = "F";
+    }
+
+    result = `
+        Total Marks: ${total} <br>
+        Average: ${average} <br>
+        Grade: ${grade}
+    `;
+
+    document.getElementById("result").innerHTML = result;
+}
