@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, skyblue, lightblue);
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 5px 15px gray;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: black;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border: 2px solid gray;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: blue;
+    outline: none;
+}
+
+#result {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
