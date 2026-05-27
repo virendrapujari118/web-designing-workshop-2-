@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registration Form</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #d0d0d0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 30px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 16px;
+      padding: 50px 50px 30px 50px;
+      width: 480px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 900;
+      color: #111;
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 15px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      outline: none;
+      color: #555;
+    }
+
+    input:focus { border-color: #888; }
+
+    .btn-row {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 14px 40px;
+      font-size: 17px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button:hover { background-color: #1b5e20; }
+
+    .my-info {
+      border-top: 1px solid #ddd;
+      padding-top: 16px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: bold;
+      color: #111;
+    }
+
+    .my-info p { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Registration Form</h1>
+
+    <input type="text" placeholder="Enter Name" />
+    <input type="email" placeholder="Enter Email" />
+    <input type="password" placeholder="Enter Password" />
+
+    <div class="btn-row">
+      <button>Register</button>
+    </div>
+
+    <!-- Your info below -->
+    
+     <div class="my-info">
+      
+    </div>
+
+  </div>
+
+</body>
+</html>

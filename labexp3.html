@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FitLife</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #3a4048;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 28px;
+    }
+
+    nav .logo {
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    nav ul li a:hover { text-decoration: underline; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(to right, #a8c8f0, #7b7fe8);
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h1 {
+      color: white;
+      font-size: 38px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .hero button {
+      background-color: white;
+      color: #3a4048;
+      border: none;
+      padding: 12px 28px;
+      font-size: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .hero button:hover { background-color: #f0f0f0; }
+
+    /* Programs Section */
+    .programs {
+      background-color: #f2f2f2;
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .programs h2 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 36px;
+      color: #111;
+    }
+
+    .cards {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px 24px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      color: #cc0000;
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: #333;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(to right, #a8c8f0, #7b7fe8);
+      text-align: center;
+      padding: 24px 20px;
+    }
+
+    footer p {
+      color: white;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">FitLife</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Programs</a></li>
+      <li><a href="#">Trainers</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Transform Your Body & Mind</h1>
+    <p>Join FitLife today and achieve your fitness goals with expert trainers.</p>
+    <button>Join Now</button>
+  </section>
+
+  <!-- Programs -->
+  <section class="programs">
+    <h2>Our Programs</h2>
+    <div class="cards">
+
+      <div class="card">
+        <h3>Weight Training</h3>
+        <p>Build strength and muscle with guided weight training programs.</p>
+      </div>
+
+      <div class="card">
+        <h3>Yoga Classes</h3>
+        <p>Improve flexibility and mental wellness through yoga sessions.</p>
+      </div>
+
+      <div class="card">
+        <h3>Diet Plans</h3>
+        <p>Personalized diet plans to complement your fitness routine.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 FitLife | All Rights Reserved</p>
+    <p>Contact: info@fitlife.com</p>
+  </footer>
+
+  
+
+
+</body>
+</html>

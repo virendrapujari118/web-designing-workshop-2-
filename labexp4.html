@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JavaScript Demo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #2de0c0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 30px;
+    }
+
+    .container {
+      background-color: white;
+      border-radius: 16px;
+      padding: 50px 60px;
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #111;
+      margin-bottom: 30px;
+      line-height: 1.3;
+    }
+
+    input[type="text"] {
+      width: 480px;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 2px solid #aaa;
+      border-radius: 6px;
+      margin-bottom: 28px;
+      outline: none;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    button {
+      background-color: #1a8cff;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 17px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    button:hover { background-color: #006ee6; }
+
+    #paragraph {
+      font-size: 24px;
+      color: #111;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    /* Student Info */
+    .student-info {
+      margin-top: 30px;
+      border-top: 2px solid #eee;
+      padding-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .student-info span {
+      font-size: 22px;
+      font-weight: 900;
+      color: #111;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 id="heading">JavaScript is a scripting language used to make web pages interactive and dynamic.</h1>
+
+    <input type="text" id="textInput" value="JavaScript is a scripting language used to" />
+
+    <div class="buttons">
+      <div class="row">
+        <button onclick="changeHeading()">Change Heading</button>
+        <button onclick="changeBackground()">Change Background</button>
+        <button onclick="increaseFontSize()">Increase Font Size</button>
+      </div>
+      <div class="row">
+        <button onclick="toggleParagraph()">Show/Hide Paragraph</button>
+        <button onclick="reset()">Reset</button>
+      </div>
+    </div>
+
+    <p id="paragraph">This is a sample paragraph. JavaScript events can dynamically change content.</p>
+
+    <!-- Student Info below paragraph -->
+    <div class="student-info">
+     
+    </div>
+
+  </div>
+
+  <script>
+    const originalHeading = "JavaScript is a scripting language used to make web pages interactive and dynamic.";
+    const originalBg = "#2de0c0";
+    let fontSize = 36;
+
+    function changeHeading() {
+      const val = document.getElementById("textInput").value;
+      document.getElementById("heading").textContent = val || originalHeading;
+    }
+
+    function changeBackground() {
+      const colors = ["#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff", "#c77dff"];
+      const random = colors[Math.floor(Math.random() * colors.length)];
+      document.body.style.backgroundColor = random;
+    }
+
+    function increaseFontSize() {
+      fontSize += 4;
+      document.getElementById("heading").style.fontSize = fontSize + "px";
+    }
+
+    function toggleParagraph() {
+      const p = document.getElementById("paragraph");
+      p.style.display = p.style.display === "none" ? "block" : "none";
+    }
+
+    function reset() {
+      fontSize = 36;
+      const heading = document.getElementById("heading");
+      heading.textContent = originalHeading;
+      heading.style.fontSize = fontSize + "px";
+      document.body.style.backgroundColor = originalBg;
+      document.getElementById("textInput").value = "JavaScript is a scripting language used to";
+      document.getElementById("paragraph").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
